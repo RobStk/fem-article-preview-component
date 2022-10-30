@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as var;
+$color: var.$color-offstage;
+
+.article-footer {
+    display: grid;
+    height: 42px;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: 100%;
+    align-items: center;
+    gap: 20px;
+
+    .author-section {
+        display: grid;
+        height: 100%;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: 100%;
+        align-items: center;
+        gap: 20px;
+        color: $color;
+
+        .avatar {
+            border-radius: 50%;
+            height: 100%;
+        }
+
+        .author-info {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: var.$color-text-secondary;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@use "../abstracts/variables" as var;
+
+$color: var.$color-offstage;
+
+.share {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: $color;
+}

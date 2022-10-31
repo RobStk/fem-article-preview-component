@@ -1,6 +1,6 @@
-@use "../abstracts/variables";
+@use "../abstracts/colors";
 
-$background-color: variables.$color-bg-primary;
+$background-color: colors.$bg-primary;
 
 .share-button {
     position: relative;

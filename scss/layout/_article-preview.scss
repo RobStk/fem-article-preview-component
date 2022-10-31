@@ -1,12 +1,13 @@
-@use "../abstracts/variables" as var;
+@use "../abstracts/colors";
 @use "../abstracts/breakpoints" as bp;
+@use "../abstracts/tooltip";
 $mobile-max: bp.$mobile-max;
 $desktop-min: bp.$desktop-min;
-$share-active-color: var.$color-text-primary;
-$share-active-color-bg: var.$color-bg-secondary;
+$share-active-color: colors.$text-primary;
+$share-active-color-bg: colors.$bg-secondary;
 
-$large-space: 45px;
-$medium-space: 30px;
+$large-space: 46px;
+$medium-space: 32px;
 $small-space: 15px;
 $border-radius: 10px;
 
@@ -28,8 +29,6 @@ $border-radius: 10px;
     }
 
     &__content-section {
-        padding-left: $large-space;
-        padding-right: $large-space;
         padding-top: $medium-space;
         padding-bottom: $small-space;
     }
@@ -38,19 +37,26 @@ $border-radius: 10px;
         display: grid;
         grid-template-columns: 1fr max-content;
         align-items: center;
-        padding-left: $large-space;
-        padding-right: $large-space;
         position: relative;
         overflow: visible;
     }
 
     .share {
         display: none;
-        width: max-content;
+    }
+
+    &.share-active {
+        .share-button {
+            background-color: $share-active-color;
+
+            img {
+                filter: brightness(300%);
+            }
+        }
     }
 
     @media(max-width: $mobile-max) {
-        width: 367px;
+        width: 342px;
         grid-template-rows: 220px auto 72px;
         grid-template-columns: 100%;
         overflow: hidden;
@@ -59,6 +65,16 @@ $border-radius: 10px;
             img {
                 width: 100%;
             }
+        }
+
+        &__content-section {
+            padding-left: $medium-space;
+            padding-right: $medium-space;
+        }
+
+        &__footer-section {
+            padding-left: $medium-space;
+            padding-right: $medium-space;
         }
 
         .share-active & {
@@ -86,9 +102,14 @@ $border-radius: 10px;
 
     @media (min-width: $desktop-min) {
         grid-template-columns: 322px 1fr;
-        grid-template-rows: 1fr 106px;
+        grid-template-rows: 214px 106px;
         width: 820px;
         height: 320px;
+
+        &__content-section {
+            padding-left: $large-space;
+            padding-right: $large-space;
+        }
 
         &__image-section {
             overflow: hidden;
@@ -104,52 +125,16 @@ $border-radius: 10px;
 
         &__footer-section {
             padding-bottom: $small-space;
+            padding-left: $large-space;
+            padding-right: $large-space;
         }
 
         &.share-active {
             .share-button {
-
                 .share {
-                    display: flex;
-                    position: absolute;
-                    width: max-content;
-                    padding: 20px 0;
-                    border-radius: 8px;
-                    background-color: $share-active-color-bg;
-                    bottom: 200%;
-                    left: 50%;
-                    z-index: 1;
-                    width: 250px;
-                    margin-left: -125px;
-                }
-
-                .share::after {
-                    content: "";
-                    position: absolute;
-                    top: 100%;
-                    left: 50%;
-                    margin-left: -14px;
-                    border-width: 14px;
-                    border-style: solid;
-                    border-color: $share-active-color-bg transparent transparent transparent;
+                    @include tooltip.tooltip("up", 250px, colors.$bg-secondary);
                 }
             }
         }
-    }
-
-    &.share-active {
-        .share-button {
-            background-color: $share-active-color;
-
-            img {
-                filter: brightness(300%);
-            }
-        }
-    }
-
-    .article-text {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        box-sizing: content-box;
     }
 }

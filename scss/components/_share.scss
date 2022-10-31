@@ -1,10 +1,11 @@
-@use "../abstracts/variables" as var;
+@use "../abstracts/colors";
 
-$color: var.$color-offstage;
+$color: colors.$offstage;
 
 .share {
     display: flex;
     flex-direction: row;
+    width: max-content;
     gap: 20px;
     align-items: center;
     justify-content: center;

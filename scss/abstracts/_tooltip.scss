@@ -1,0 +1,41 @@
+@mixin tooltip($direction, $width, $background-color) {
+    display: flex;
+    position: absolute;
+    padding: 20px 0;
+    border-radius: 8px;
+    background-color: $background-color;
+    z-index: 1;
+    width: $width;
+
+    @if $direction =="up" {
+        bottom: 200%;
+        left: 50%;
+        margin-left: -$width*0.5;
+    }
+
+    @if $direction =="down" {
+        bottom: -300%;
+        left: 50%;
+        margin-left: -$width*0.5;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        margin-left: -14px;
+        border-width: 14px;
+        border-style: solid;
+
+        @if $direction =="up" {
+            top: 100%;
+            left: 50%;
+            border-color: $background-color transparent transparent transparent;
+        }
+
+        @if $direction =="down" {
+            bottom: 100%;
+            left: 50%;
+            border-color: transparent transparent $background-color transparent;
+        }
+    }
+}

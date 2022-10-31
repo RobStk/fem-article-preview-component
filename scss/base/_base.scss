@@ -1,4 +1,4 @@
-@use "../abstracts/variables" as var;
+@use "../abstracts/colors";
 @use "../abstracts/breakpoints" as bp;
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
 
@@ -13,13 +13,13 @@ $mobile-max: bp.$mobile-max;
 body {
     font-family: 'Manrope', sans-serif;
     font-size: 13px;
-    color: var.$color-text-primary;
+    color: colors.$text-primary;
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr max-content;
     align-items: center;
     justify-items: center;
-    background-color: var.$color-bg-primary;
+    background-color: colors.$bg-primary;
 }
 
 button {
@@ -28,7 +28,7 @@ button {
 
 h1 {
     font-size: 22px;
-    color: var.$color-text-secondary;
+    color: colors.$text-secondary;
     margin-bottom: 20px;
 
     @media(max-width: $mobile-max) {

@@ -1,5 +1,5 @@
-@use "../abstracts/colors";
 @use "../abstracts/breakpoints" as bp;
+@use "../abstracts/colors";
 @use "../abstracts/tooltip";
 $mobile-max: bp.$mobile-max;
 $desktop-min: bp.$desktop-min;
@@ -130,7 +130,7 @@ $border-radius: 10px;
         }
 
         &.share-active {
-            .share-button {
+            .share-container {
                 .share {
                     @include tooltip.tooltip("up", 250px, colors.$bg-secondary);
                 }

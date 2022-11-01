@@ -115,6 +115,16 @@ p {
   pointer-events: all;
 }
 
+.share-container {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+}
+
 .article-preview {
   position: relative;
   background-color: white;
@@ -211,7 +221,7 @@ p {
     padding-left: 46px;
     padding-right: 46px;
   }
-  .article-preview.share-active .share-button .share {
+  .article-preview.share-active .share-container .share {
     display: flex;
     position: absolute;
     padding: 20px 0;
@@ -223,7 +233,7 @@ p {
     left: 50%;
     margin-left: -125px;
   }
-  .article-preview.share-active .share-button .share::after {
+  .article-preview.share-active .share-container .share::after {
     content: "";
     position: absolute;
     margin-left: -14px;
